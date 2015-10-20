@@ -1,5 +1,7 @@
 #Geocoding in ArcGIS
 ##Resources
+
+
 ##Basics of Geocoding
 ###Preparing Your Address Table
 ###Building an Address Locator
