@@ -39,6 +39,15 @@
 ```Dallas, TX, USA```
  
 ## Geocoding with OpenRefine and an API
+### OpenRefine
+Get it at OpenRefine.org
+
+GREL Reference for learning Google Refine Language
+
+### Example Data 
+Here is a dataset to use for the excercise:
+ 
+
 
 ## Using the locator.stanford.edu Address Locators
 The Stanford Geospatial Center has been developing our internal geocoding infrastructure. We now have a BETA Geocoding Server, based upon Esri's ArcGIS Server technology. The server currently provides geocoding services for North American Street Addresses.
@@ -61,22 +70,19 @@ The address locators in the Rio folder include Address Locators built by The Spa
 
 For more information about the Geocoding Process in ArcGIS, see Esri's What is Geocoding? Guide.
 
-###Running the job
 
 
 
+## Building an Address Locator with ArcGIS Pro
+### Example Data  
 
 
-### Building an Address Locator
-#### Address Locator Style  
-[Commonly used address locator styles](https://desktop.arcgis.com/en/desktop/latest/guide-books/geocoding/commonly-used-address-locator-styles.htm)  
+### Reference Data
 
-####Reference Data
+Here is a US Counties file for 1930:  
+[https://earthworks.stanford.edu/catalog/stanford-zf690wx7253](https://earthworks.stanford.edu/catalog/stanford-zf690wx7253)
 
 
-##### Streets
-##### POI
-##### Boundaries
 
 ###Running the Geocoding Job
 
