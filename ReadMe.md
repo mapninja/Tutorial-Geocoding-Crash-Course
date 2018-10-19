@@ -139,15 +139,15 @@ For the needs of this tutorial, OpenRefine allows us to build and submit URLs to
 
 You will, of course, need to download OpenRefine in order to complete this tutorial. You can get the appropriate version for your operating system from [OpenRefine.org] (http://openrefine.org/). In the meantime, there are 3 videos on the OpenRefine frontpage. You should take a look at all three, because they give a great, concise overview of many of the capabilities of OpenRefine. For the purposes of this tutorial, it wouldn't hurt to watch the 3rd video, linked here:
 
-http://www.youtube.com/watch?feature=player_embedded&v=5tsyz3ibYzk
+[http://www.youtube.com/watch?feature=player_embedded&v=5tsyz3ibYzk](http://www.youtube.com/watch?feature=player_embedded&v=5tsyz3ibYzk)
 
 You might also want to take a look at this page on "___Understanding Expressions___" in OpenRefine:
 
-https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Expressions
+[https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Expressions](https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Expressions)
 
 And, here's the full Documentation Wiki:
 
-https://github.com/OpenRefine/OpenRefine/wiki/Documentation-For-Users
+[https://github.com/OpenRefine/OpenRefine/wiki/Documentation-For-Users](https://github.com/OpenRefine/OpenRefine/wiki/Documentation-For-Users)
 
 
 ## What is an [Geocoding] API?
