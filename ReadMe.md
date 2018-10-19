@@ -834,7 +834,7 @@ We will first concatenate the COunty and State fields, inserting "County, " as w
 value+" County, Texas"
 ```
 
-![OpenRefine Expression Window] (/images/Geocoding_7.png)
+![OpenRefine Expression Window](/images/Geocoding_7.png)
 
 
 4. Notice that your Preview updates and you should see 'Anderson County, Texas' as the result for the first record. Click OK to calculate the concatenation for all of the records in the table.
@@ -863,22 +863,22 @@ Bexar+County%2C+Texas
 
 6. Name your New Column "**GEONAMESJSON1**" and set the Throttle Delay value to '200' milliseconds (this will tell OpenRefine to submit 5 Geocode Requests per second).
 
-![OpenRefine Expression Window] (/images/Geocoding_8.png)
+![OpenRefine Expression Window](/images/Geocoding_8.png)
 
 Wait for the geocoding to finish (a few minutes, HOORAY FOR PROGRESS MESSAGES!) and you should have something like this:
 
-![OpenRefine Expression Window] (/images/Geocoding_9.png)
+![OpenRefine Expression Window](/images/Geocoding_9.png)
 
 ##Parsing the JSON for what you need
 
 Cut and paste one of your JSON records into the text tab of the Online JSON Viewer at http://jsonviewer.stack.hu/, then click **Format** and then click on the **Viewer** Tab and expand all of the elements in the panel on the left:
 
-![OpenRefine Expression Window] (/images/Geocoding_11.png)
+![OpenRefine Expression Window](/images/Geocoding_11.png)
 
 ```
 value.parseJson().geonames[0].lat
 ```
-![OpenRefine Expression Window] (/images/Geocoding_10.png)
+![OpenRefine Expression Window](/images/Geocoding_10.png)
 
 ```
 value.parseJson().geonames[0].lng
