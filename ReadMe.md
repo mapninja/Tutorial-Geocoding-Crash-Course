@@ -100,6 +100,7 @@ This should result in values like this:
 2. Select Single Field as the locator type and set US_county_1930_conflated.shp as the reference data
 3. Set the PLACE field as the ***keyfield** and run the tool. 
 4. Right click on the resulting Address Locator and inspect the Properties to see what changes you can make. 
+5. Set the 
 5. Close the properties and drag the locator into the Map Document to make it the default locator.
 
 ### Running the Geocoding Job  
@@ -110,6 +111,7 @@ This should result in values like this:
  5. Uncheck Match if Candidates tie
  6. Check the option to write the Reference ID
 7. Click OK, twice, to run the geocoder.
+8. Use a Spatial Join to add the Geocoding Results attributes to the original US_county_1930_conflated.shp file
 
 
 
