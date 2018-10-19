@@ -112,15 +112,23 @@ This should result in values like this:
 8. Use a Spatial Join to add the Geocoding Results attributes to the original US_county_1930_conflated.shp file
 
 ## Geocoding with OpenRefine and an API
-### OpenRefine
-Get it at OpenRefine.org
-
-GREL Reference for learning Google Refine Language
 
 ### Example Data 
-Here is a dataset to use for the excercise:
+* TexasHealthByCounty.csv - is the table we will geocode
+* Other datasets we can play with included in the Challenge folder
 
-###Getting Ready for the Tutorial 
+### Important Links:
+OpenRefine.org: [http://openrefine.org/](http://openrefine.org/)
+
+Understanding OpenRefine Expressions: [https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Expressions](https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Expressions)
+
+The Geonames.org Geocoding API: [http://www.geonames.org/export/geonames-search.html](http://www.geonames.org/export/geonames-search.html)
+
+The Tulane Geolocate JSON Wrapper API Documentation: [http://www.museum.tulane.edu/geolocate/files/glcJSON.pdf](http://www.museum.tulane.edu/geolocate/files/glcJSON.pdf)
+
+Online JSON Viewer: [http://jsonviewer.stack.hu/](http://jsonviewer.stack.hu/)
+
+### Getting Ready for the Tutorial 
 This tutorial will demonstrate how to use OpenRefine to submit URLs to web-based Geocoding APIs in order to augment an existing dataset with things like latitude & longitude coordinates, elevation values, drive times, etc...
 
 OpenRefine is a piece of open-source software that allows you to manipulate data in many different ways. It's not just great for geocoding and augmenting datasets, but is really great for cleaning up 'dirty' data, too. 
@@ -240,9 +248,9 @@ What you get back should look like this (_sans_ the fancy syntax highlighting Gi
 }
 }
 ```
-##What is JSON?
+## What is JSON?
 For our purposes, we don't really need to go deeply into what JSON (JavaScript Object Notation) is. It is enough for you to know that it is a format for storing and exchanging data in human readable text format and that it is an output format for all of the APIs we will use, as well as most web-based data APIs.
-###Making sense of JSON
+### Making sense of JSON
 OK, so that JSON we got back might be a little intimidating if you aren't used to looking at code, but if you just bend your knees and take a deep breath, then look closely, you will see that there is actually some useful information in there! In fact, if what we are doing is geocoding placenames, it's got exactly what we need on the line that begins with **"geometry":**
 ```
 "geometry": {"type": "Point", "coordinates": [-89.84861, 30.79083]},
@@ -264,8 +272,8 @@ resultSet.features[0].geometry.coordinates[0]
 ```
 
 
-#Geolocate Tulane
-###Limits
+# Geolocate Tulane
+### Limits
 There are no licensing restrictions on the Tulane Geolocate service. The API can be used for any geocoding purpose and for any amount of data. That said, the service does have some technical limitations. I have observed that a more stable result is achieved when using no more than 5 requests per second. Another thing to consider is the purpose for which Geolocate was created. Geolocate is very good at geocoding to administrative boundaries, but was not designed to geocode street addresses, so if that is what you have, you will have to use an alternative service.
 
 Here are the Geolocate Parameters, once again:
@@ -281,7 +289,7 @@ Most of these are fairly straightforward. The ones that most concern us  for the
   __state__ - This is listed as an optional parameter in the Geolocate JSON Wrapper DOc, but it is __REQUIRED__ if you are geocoding data within the United States and set your 'country=USA'.
   
   
-###API Overview
+### API Overview
 
 Again, here’s the basic structure of the URLs you will submit to the Geolocate JSON Wrapper Web API:
 
@@ -301,24 +309,25 @@ Country=USA&Locality=bogalusa&state=la&fmt=JSON
 
 are the parameters of the search. In this case, there are four basic parameters to the search.
 
-###Geocoding with Geolocate
+### Geocoding with Geolocate
 ___this section in progress___
 
-#Geonames.org
-##Create an Account
+# Geonames.org
+## Create an Account
 
-http://www.geonames.org/
+[http://www.geonames.org/login](http://www.geonames.org/login)
 
-##Examine the API Docs
+## Examine the API Docs
 
-http://www.geonames.org/export/ws-overview.html
+[http://www.geonames.org/export/ws-overview.html](http://www.geonames.org/export/ws-overview.html)
 
 We're interested in the ___Search___ API
 
-http://www.geonames.org/export/geonames-search.html
+[http://www.geonames.org/export/geonames-search.html](http://www.geonames.org/export/geonames-search.html)
 
-##Use the Advanced Search Box to Help Build a URL
-http://www.geonames.org/advanced-search.html?
+## Use the Advanced Search Box to Help Build a URL  
+
+[http://www.geonames.org/advanced-search.html?](http://www.geonames.org/advanced-search.html?)
 
 1. Search for 'Bexar County, Texas'; Country='United States'; Feature Class='Country,State,Region...'
 
@@ -874,42 +883,8 @@ value.parseJson().geonames[0].lat
 ```
 value.parseJson().geonames[0].lng
 ```
-##Clean the 'NR' Values Out of Your Table
-
-##Transform the OutComes and Factors Fields to Numeric
-
-##Export Your Data to a CSV
-
-##Display XY Data in ArcMap
-
-##Spatial Join Your Table to the Counties Data
-
-##Symbolize
 
 
-
-#Google APIs
-###Limits
-###Geocoding
-###Elevation
-###Directions
-
-#Important Links:
-OpenRefine.org: http://openrefine.org/
-
-Understanding OpenRefine Expressions: https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Expressions
-
-The Geonames.org Geocoding API: http://www.geonames.org/export/geonames-search.html
-
-The Tulane Geolocate JSON Wrapper API Documentation: http://www.museum.tulane.edu/geolocate/files/glcJSON.pdf
-
-The Google Geocoding API: https://developers.google.com/maps/documentation/geocoding/
-
-The Google Directions API: https://developers.google.com/maps/documentation/directions/
-
-The Google Elevation API: https://developers.google.com/maps/documentation/elevation/
-
-Online JSON Viewer: http://jsonviewer.stack.hu/
 
 
 
