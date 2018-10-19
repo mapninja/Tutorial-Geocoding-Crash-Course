@@ -363,7 +363,8 @@ Where you will replace the ???????? with your Geonames Username. Just put this r
 api.geonames.org/search?q=Bexar+County%2C+Texas&country=US&featureClass=A&continentCode=&username=?????????
 ```
 
-Now try hitting enter to submit the URL, again. You should see something like the below (it's a large amount of text, since we haven't limited the returns, yet):
+Now try hitting enter to submit the URL, again. You should see something like the below (it's a large amount of text, since we haven't limited the returns, yet):  
+
 ```XML
 This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <geonames style="MEDIUM">
@@ -390,147 +391,18 @@ This XML file does not appear to have any style information associated with it. 
 <fcl>A</fcl>
 <fcode>ADMD</fcode>
 </geoname>
-<geoname>
-<toponymName>City of Helotes</toponymName>
-<name>City of Helotes</name>
-<lat>29.56325</lat>
-<lng>-98.70832</lng>
-<geonameId>7173601</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Selma</toponymName>
-<name>City of Selma</name>
-<lat>29.58652</lat>
-<lng>-98.31338</lng>
-<geonameId>7174414</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Somerset</toponymName>
-<name>City of Somerset</name>
-<lat>29.22848</lat>
-<lng>-98.65671</lng>
-<geonameId>7174465</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Von Ormy</toponymName>
-<name>City of Von Ormy</name>
-<lat>29.28019</lat>
-<lng>-98.65567</lng>
-<geonameId>7226947</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Castle Hills</toponymName>
-<name>City of Castle Hills</name>
-<lat>29.52284</lat>
-<lng>-98.51971</lng>
-<geonameId>7172817</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Grey Forest</toponymName>
-<name>City of Grey Forest</name>
-<lat>29.61693</lat>
-<lng>-98.68332</lng>
-<geonameId>7173551</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Hill Country Village</toponymName>
-<name>City of Hill Country Village</name>
-<lat>29.58311</lat>
-<lng>-98.48913</lng>
-<geonameId>7173621</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Leon Valley</toponymName>
-<name>City of Leon Valley</name>
-<lat>29.49534</lat>
-<lng>-98.614</lng>
-<geonameId>7173662</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>City of Shavano Park</toponymName>
-<name>City of Shavano Park</name>
-<lat>29.58617</lat>
-<lng>-98.55632</lng>
-<geonameId>7174427</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>Town of Saint Hedwig</toponymName>
-<name>Town of Saint Hedwig</name>
-<lat>29.41971</lat>
-<lng>-98.20471</lng>
-<geonameId>7175009</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>Town of Hollywood Park</toponymName>
-<name>Town of Hollywood Park</name>
-<lat>29.59954</lat>
-<lng>-98.48391</lng>
-<geonameId>7175181</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-<geoname>
-<toponymName>Town of China Grove</toponymName>
-<name>Town of China Grove</name>
-<lat>29.39303</lat>
-<lng>-98.34435</lng>
-<geonameId>7175602</geonameId>
-<countryCode>US</countryCode>
-<countryName>United States</countryName>
-<fcl>A</fcl>
-<fcode>ADMD</fcode>
-</geoname>
-</geonames>
-```
+
+
+and so on...
+```  
 
 Now we will add the last two parameters to the URL and see what the result looks like. First, we want to return JSON, instead of XML, so let's add the paramet 'JSON' just after the 'search' and '?' in the URL, so our URL looks like this:
 ```
 http://api.geonames.org/searchJSON?q=Bexar+County%2C+Texas&country=US&featureClass=A&continentCode=&username=mapninja
 ```
 
-Hit enter and notice that returned format has changed (also note that I have formatted the following for easier viewing and that the JSON you get back will not have line breaks and indents):
+Hit enter and notice that returned format has changed (also note that I have formatted the following for easier viewing and that the JSON you get back will not have line breaks and indents):  
+
 ```JSON
 {
   "totalResultsCount": 14,
@@ -569,212 +441,8 @@ Hit enter and notice that returned format has changed (also note that I have for
       "lat": "29.25547",
       "fcode": "ADMD"
     },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.70832",
-      "geonameId": 7173601,
-      "toponymName": "City of Helotes",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 7341,
-      "countryCode": "US",
-      "name": "City of Helotes",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.56325",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.31338",
-      "geonameId": 7174414,
-      "toponymName": "City of Selma",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 5540,
-      "countryCode": "US",
-      "name": "City of Selma",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.58652",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.65671",
-      "geonameId": 7174465,
-      "toponymName": "City of Somerset",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 1631,
-      "countryCode": "US",
-      "name": "City of Somerset",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.22848",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.65567",
-      "geonameId": 7226947,
-      "toponymName": "City of Von Ormy",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 1085,
-      "countryCode": "US",
-      "name": "City of Von Ormy",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.28019",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.51971",
-      "geonameId": 7172817,
-      "toponymName": "City of Castle Hills",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 4116,
-      "countryCode": "US",
-      "name": "City of Castle Hills",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.52284",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.68332",
-      "geonameId": 7173551,
-      "toponymName": "City of Grey Forest",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 483,
-      "countryCode": "US",
-      "name": "City of Grey Forest",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.61693",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.48913",
-      "geonameId": 7173621,
-      "toponymName": "City of Hill Country Village",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 985,
-      "countryCode": "US",
-      "name": "City of Hill Country Village",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.58311",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.614",
-      "geonameId": 7173662,
-      "toponymName": "City of Leon Valley",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 10151,
-      "countryCode": "US",
-      "name": "City of Leon Valley",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.49534",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.55632",
-      "geonameId": 7174427,
-      "toponymName": "City of Shavano Park",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 3035,
-      "countryCode": "US",
-      "name": "City of Shavano Park",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.58617",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.20471",
-      "geonameId": 7175009,
-      "toponymName": "Town of Saint Hedwig",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 2094,
-      "countryCode": "US",
-      "name": "Town of Saint Hedwig",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.41971",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.48391",
-      "geonameId": 7175181,
-      "toponymName": "Town of Hollywood Park",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 3062,
-      "countryCode": "US",
-      "name": "Town of Hollywood Park",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.59954",
-      "fcode": "ADMD"
-    },
-    {
-      "adminCode1": "TX",
-      "lng": "-98.34435",
-      "geonameId": 7175602,
-      "toponymName": "Town of China Grove",
-      "countryId": "6252001",
-      "fcl": "A",
-      "population": 1179,
-      "countryCode": "US",
-      "name": "Town of China Grove",
-      "fclName": "country, state, region,...",
-      "countryName": "United States",
-      "fcodeName": "administrative division",
-      "adminName1": "Texas",
-      "lat": "29.39303",
-      "fcode": "ADMD"
-    }
-  ]
-}
+    
+    And so on...
 ```
 
 Finally, let's use the **&maxRows=1** parameter to tell Geonames to only return a single row of information, and the **&featureCode=ADM2** parameter (we only want County Names, returned), so that our URL looks like this:
@@ -807,7 +475,7 @@ Hit enter to test the URL and you should return the following (again, unformatte
   ]
 }
 ```
-##Bulk Geocoding Against the Geonames API with OpenRefine
+## Bulk Geocoding Against the Geonames API with OpenRefine
 Now it's time to start up OpenRefine and use the URL we've just created to submit a Geocoding Request for each of our Texas Counties.
 
 1. Start OpenRefine by double-clicking the Google-Refine.exe (yours will likely have a version number or it might even be called OpenRefine, if you downloaded the Beta release)
@@ -820,7 +488,7 @@ Now it's time to start up OpenRefine and use the URL we've just created to submi
 
 5. Make sure the data is properly formatted in the Preview, change the **Parse data as** parameters until the data is properly formatted. Click **Create Project** in the upper right corner of the page.
 
-##Concatenating Fields in OpenRefine
+## Concatenating Fields in OpenRefine
 If you haven't already, now is a good time to take a look at the basics of the GREL (Google Refine Expresion Language)  https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Expressions.
 
 We will first concatenate the COunty and State fields, inserting "County, " as well, for a well formatted placename.
@@ -839,7 +507,7 @@ value+" County, Texas"
 
 4. Notice that your Preview updates and you should see 'Anderson County, Texas' as the result for the first record. Click OK to calculate the concatenation for all of the records in the table.
 
-##Using Our URL as a Template
+## Using Our URL as a Template
 
 Now is the time to return to your URL you created, and Copy it from the Browser Address Bar. Again, it should be something like this (with ?????? replaced by your Geonames Username):
 ```
@@ -863,22 +531,22 @@ Bexar+County%2C+Texas
 
 6. Name your New Column "**GEONAMESJSON1**" and set the Throttle Delay value to '200' milliseconds (this will tell OpenRefine to submit 5 Geocode Requests per second).
 
-![OpenRefine Expression Window](/images/Geocoding_8.png)
+![OpenRefine Expression Window](/images/Geocoding_8.png)  
 
 Wait for the geocoding to finish (a few minutes, HOORAY FOR PROGRESS MESSAGES!) and you should have something like this:
 
-![OpenRefine Expression Window](/images/Geocoding_9.png)
+![OpenRefine Expression Window](/images/Geocoding_9.png)  
 
-##Parsing the JSON for what you need
+## Parsing the JSON for what you need
 
 Cut and paste one of your JSON records into the text tab of the Online JSON Viewer at http://jsonviewer.stack.hu/, then click **Format** and then click on the **Viewer** Tab and expand all of the elements in the panel on the left:
 
-![OpenRefine Expression Window](/images/Geocoding_11.png)
+![OpenRefine Expression Window](/images/Geocoding_11.png)  
 
 ```
 value.parseJson().geonames[0].lat
 ```
-![OpenRefine Expression Window](/images/Geocoding_10.png)
+![OpenRefine Expression Window](/images/Geocoding_10.png)  
 
 ```
 value.parseJson().geonames[0].lng
