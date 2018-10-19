@@ -440,11 +440,11 @@ OK, so that JSON we got back might be a little intimidating if you aren't used t
 
 Copy&Paste the JSON from the example we clicked earlier into the [http://jsonviewer.stack.hu/](http://jsonviewer.stack.hu/) text tab and click on the Format Button in the Main Menu. Then switch to the Viewer Tab...  
 
-![JSONViewer Collapsed] (/images/JSONViewerCollapsed.png)
+![JSONViewer Collapsed](/images/JSONViewerCollapsed.png)
 
 Then, Expand all of the elements in the hierarchy so that you have something that looks like this:  
 
-![JSONViewer Collapsed] (/images/JSONViewerExpanded.png)
+![JSONViewer Collapsed](/images/JSONViewerExpanded.png)
 
 You can see that the latitude and longitude coordinates are under the coordinates object. If you track back through the hierarchy from the coordinates object, you will find that the address of the longitude coordinate [-89.84861] is:  
 
