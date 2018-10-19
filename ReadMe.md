@@ -8,6 +8,8 @@ Webpage version of this repo, here: [http://mapninja.github.io/Tutorial-Geocodin
 
 Download the repo as a .zip file to get the data for the exercises: [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS/archive/master.zip](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS/archive/master.zip)
 
+Slides: [https://slides.com/staceymaples/geocoding-101](https://slides.com/staceymaples/geocoding-101)
+
 
 ## Resources
 ### Geocoding Services
