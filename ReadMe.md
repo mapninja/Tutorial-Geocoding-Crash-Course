@@ -1,12 +1,12 @@
 # Geocoding: A Crash Course (because this is a workshop in progress, and geocoding is hard and we will crash a little).
 
-Shortlink: [bit.ly/crashgeocode](bit.ly/crashgeocode)
+Shortlink: [http://bit.ly/crashgeocoding](http://bit.ly/crashgeocoding)
 
-Github Repo: [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)
+Github Repo: [https://github.com/mapninja/Tutorial-Geocoding-Crash-Course](https://github.com/mapninja/Tutorial-Geocoding-Crash-Course)
 
-Webpage version of this repo, here: [http://mapninja.github.io/Tutorial-Geocoding-in-ArcGIS/](http://mapninja.github.io/Tutorial-Geocoding-in-ArcGIS/)  
+Webpage version of this repo, here: [http://mapninja.github.io/Tutorial-Geocoding-Crash-Course/](http://mapninja.github.io/Tutorial-Geocoding-Crash-Course/)  
 
-Download the repo as a .zip file to get the data for the exercises: [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS/archive/master.zip](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS/archive/master.zip)
+Download the repo as a .zip file to get the data for the exercises: [https://github.com/mapninja/Tutorial-Geocoding-Crash-Course/archive/master.zip](https://github.com/mapninja/Tutorial-Geocoding-Crash-Course/archive/master.zip)
 
 Slides: [https://slides.com/staceymaples/geocoding-101](https://slides.com/staceymaples/geocoding-101)
 
