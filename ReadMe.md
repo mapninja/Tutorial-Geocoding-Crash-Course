@@ -37,85 +37,96 @@
 * For placenames, concatenate administrative units, as follows:
 
 ```Dallas, TX, USA```
+
+#### Collapse your addresses/placenames into a table of UNIQUE addresses/placenames!  
+
+That is, if you have a database of 2 million addresses, but there are many duplicates, use a summary or frequency tool to collapse those records into unique localities. For example, the Photogrammar data we will use with our custom ArcGIS Address Locator has 98k+ records, but only about 4000 unique locations. They can easily be joined back to the original dataset in a many-to-one join. 
  
- 
+This should always be the first step in a geocoding job, as it saves time, processing and often credits or money. 
+
 # Exercises
 
-
-## Using the locator.stanford.edu Address Locators  
+## Exercise #1 - Using the locator.stanford.edu Address Locators  
 ### Example Data  
 We'll use one file from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise: 
 
-* Evictions_94102.csv
+* **Evictions_94102.csv**
 
+The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's ArcGIS Server technology. The server currently provides geocoding services for US Street Addresses, postal codes and administrative boundaries.
 
+#### To access the Address Locator services:
 
-The Stanford Geospatial Center has been developing our internal geocoding infrastructure. We now have a BETA Geocoding Server, based upon Esri's ArcGIS Server technology. The server currently provides geocoding services for North American Street Addresses.
-
-To access the Address Locator services:
-
-1. In ArcCatalog, or the Catalog Panel in ArcMap, expand the GIS Servers item    
-2. Double-click the Add ArcGIS Server item    
-3. Leave the default "Use GIS Services" option, click Next>  
-4. For the 'Server URL' use: [http://locator.stanford.edu/arcgis](http://locator.stanford.edu/arcgis)  
+1. In ArcCatalog, or the **Catalog Panel in ArcMap**, expand the **GIS Servers** item    
+2. Double-click the **Add ArcGIS Server** item    
+3. Leave the default "**Use GIS Services**" option, click **Next> ** 
+4. For the '**Server URL**' use: [https://locator.stanford.edu/arcgis](https://locator.stanford.edu/arcgis)  
 5.  **For 'User Name' use your SUNetID (prefixed with the 'WIN\' domain) as WIN\SUNetID**  
-6.  Enter the password associated with your SUNetID and check the option to Save Username/Password  
-7.  Click Finish  
+6.  Enter the **password** associated with your **SUNetID** and check the option to **Save Username/Password**  
+7.  Click **Finish**  
 
 
 ### Running the geocoding job  
-1. Drag and drop the US_StreetAddress Address Locator from your Server Connection in the Catalog Panel, into the Map Document to make it the default. 
-2. Drag the Evictions_94102.csv into the Map Document and open it to examine the attributes, paying attention to the field names for the address fields.
-3.  Right-click on Evictions_94102.csv and select **Geocode addresses...** and then click OK to use the default you set, before. 
-4. Set the appropriate fields in the Address input fields options
-5. Open the Geocoding options and examine them, but accept the server defaults.
-6. Click OK to run the geocoder.
-6. Click Rematch to explore the options, try to manually match any unmatched records and Close the Rematch Dialog.
-7. Right-click and Zoom to the Geocoding Result layer
-8. Add a Basemap for context.  
+1. **Drag and drop** the **US_StreetAddress Address Locator **from your Server Connection in the **Catalog Panel**, into the **Map Document** to make it the default. 
+2. **Drag** the **Evictions_94102.csv** into the **Map Document** and **open** it to **examine the attributes**, paying attention to the field names for the address fields.
+3.  **Right-click** on E**victions_94102.csv** and select **Geocode addresses...** and then **click OK** to use the default you set, before. 
+4. Set the appropriate fields in the **Address input fields** options
+5. Open the G**eocoding options** and examine them, but accept the server **defaults**.
+6. **Click OK** to run the geocoder.
+6. Click **Rematch** to explore the options, try to **manually match any unmatched records** and Close the Rematch Dialog.
+7. Right-click and **Zoom to the Geocoding Result layer**
+8. Add a **Basemap** for context.  
 
-## Building an Address Locator with ArcMap
+
+### Note:  
+
+There are a number of ways to leverage the SGC Address Locator server:  
+1. Use the REST API to geocode using Python: [https://developers.arcgis.com/python/guide/batch-geocoding/](https://developers.arcgis.com/python/guide/batch-geocoding/)  
+2. Use Claudia Engels' R Script: [https://github.com/StanfordGeospatialCenter/ArcGIS_geocoding](https://github.com/StanfordGeospatialCenter/ArcGIS_geocoding)   
+3. Use ArcGIS Online, logged in using your SUNetID and Password, and select the default geocoder when prompted, after adding a table of addresses.  
+
+## Exercise #2 - Building an Address Locator with ArcMap
 ### Example Data  
+
 We'll use two files from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise: 
  
-* US_county_1930_conflated.shp - the reference data we will use to build our geocoder
-* photogrammar_image_count.csv
+* **US_county_1930_conflated.shp** - the reference data we will use to build our geocoder
+* **photogrammar_image_count.csv**
 
 ### Prepare the reference data
 
-1. Open ArcMap and bring the US_county_1930_conflated.shp data into an empty Map Document
-2. Open the attribute table, create a new **Text** field called PLACE, with a length of 255
-3. right-click on the new PLACE field header and ***Calculate Field***
-4. Use the following code to concatenate the COUNTY and STATE fields, adding appropriate commas and 'USA':
+1. **Open ArcMap** and bring the **US_county_1930_conflated.shp** data into an empty **Map Document**
+2. **Open the attribute table**, create a new **Text** field called **PLACE**, with a **length of 100**
+3. **right-click** on the new **PLACE** field header and ***Field Calculator***
+4. Use the following code to **concatenate** the **COUNTY** and **STATE** fields, adding appropriate commas and '**United States**':  
 
-```[NHGISNAM] &" County, " & [STATENAM]&", United States"```  
+```[NHGISNAM] &" County, " & [STATENAM]&", United States"```   
 
-This should result in values like this:
-```Adair County, Missouri, United States```
-### Create the Address Locator
-1. In the Catalog Panel of ArcMap, right-click on your 'data' folder and select **New>Address locator...**
-2. Select Single Field as the locator type and set US_county_1930_conflated.shp as the reference data
-3. Set the PLACE field as the ***keyfield** and run the tool. 
-4. Right click on the resulting Address Locator and inspect the Properties to see what changes you can make. 
-5. Set the 
-5. Close the properties and drag the locator into the Map Document to make it the default locator.
+This should result in values like this:  
+
+```Adair County, Missouri, United States```  
+
+### Create the Address Locator  
+1. In the **Catalog Panel of ArcMap**, **right-click** on your **'data' folder **and select **New>Address locator...**  
+2. Select **Single Field** as the **locator type** and set  **US_county_1930_conflated.shp** as the reference data  
+3. Set the **PLACE** field as the ***keyfield** and run the tool. 
+4. **Right click** on the resulting **Address Locator** and inspect the **Properties** to see what changes you can make.  
+5. Close the properties and **drag the locator into the Map Document** to make it the default locator.
 
 ### Running the Geocoding Job  
-1. Bring the photogrammar_image_count.csv table into ArcMap, right-click and select **Geocode Addresses** and click OK
-2. Change to Single and Select **Column 1** as the **key**
-3. Click on Geocoding Options and:
- 4. Change the Spelling Sensitivity and Minimum Match Score to 50
- 5. Uncheck Match if Candidates tie
- 6. Check the option to write the Reference ID
-7. Click OK, twice, to run the geocoder.
-8. Click Rematch to explore the options, there, then click Close.
-8. Use a Spatial Join to add the Geocoding Results attributes to the original US_county_1930_conflated.shp file
+1. Bring the **photogrammar_image_count.csv** table into **ArcMap**, right-click and **select** **Geocode Addresses** and click **OK**
+2. **Change** to **Single** and Select **Column 1** as the **key**
+3. Click on **Geocoding Options** and:
+ 4. Change the **Spelling Sensitivity **and **Minimum Match Score** to **50**
+ 5. **Uncheck** **Match if Candidates tie**
+7. Click **OK**, twice, to **run the geocoder**.
+8. Click **Rematch** to **explore the options**, then click **Close**.
+8. Use a **Spatial Join** to add the **Geocoding Results attributes **to the original **US_county_1930_conflated.shp** file
 
 ## Geocoding with OpenRefine and an API
 
 ### Example Data 
-* TexasHealthByCounty.csv - is the table we will geocode
-* Other datasets we can play with included in the Challenge folder
+* **TexasHealthByCounty.csv** - is the table we will geocode
+* Other datasets we can play with included in the **Challenge** folder
 
 ### Important Links:
 OpenRefine.org: [http://openrefine.org/](http://openrefine.org/)
@@ -160,94 +171,93 @@ Here’s the basic structure of one of the URLs you will submit to the one of th
 http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?Country=USA&Locality=bogalusa&state=la&fmt=JSON
 ```
 
-From the sample above:
+From the sample above:  
+
 ```
 http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?
-``` 
-...is the base URL of the (Geolocate Search API) [http://www.museum.tulane.edu/geolocate/]...
+```  
+
+...is the base URL of the (Geolocate Search API) [http://www.museum.tulane.edu/geolocate/]...  
 
 ```
 Country=USA&Locality=bogalusa&state=la&fmt=JSON
-```
-...are the parameters of the search. In this case, there are four basic parameters to the search...
+```  
+
+...are the parameters of the search. In this case, there are four basic parameters to the search...  
 
 ```
 Country=USA
-```
-...this first **parameter** indicates to the Geolocate API what country the placename you are searching for is in.  This is a **required** parameter in the Geolocate API.
+```  
+...this first **parameter** indicates to the Geolocate API what country the placename you are searching for is in.  This is a **required** parameter in the Geolocate API.  
+
+```  
+&Locality=bogalusa
+```  
+
+...this is the **placename** you are searching for.  
 
 ```
-&Locality=bogalusa
-```
-...this is the **placename** you are searching for.
-```
 &state=la
-```
-...this is the name of the state that the locality you are looking for is in. In the Geolocate API, this is a required parameter if you are searching for placenames within the USA.
+```  
+
+...this is the name of the state that the locality you are looking for is in. In the Geolocate API, this is a required parameter if you are searching for placenames within the USA.  
+
 
 ```
 &fmt=JSON
 ```
-...this parameter indicates the type of output you would like to get back from the Geolocate API. Currently, the Geolocate API is able to return JSON or GeoJSON.  We will discuss these formats, and their differences, later. 
+...this parameter indicates the type of output you would like to get back from the Geolocate API. Currently, the Geolocate API is able to return JSON or GeoJSON.  We will discuss these formats, and their differences, later.   
 
 Here are the rest of the supported parameters from the Geolocate API:
 
 ![Geolocate API Parameters](/images/Geolocate_API_Parameters.png)
 
-### Getting back JSON
-For the time being, try submitting the above search to the Geolocate API by clicking on this link:
+### Getting back JSON  
+For the time being, try submitting the above search to the Geolocate API by clicking on this link:  
 
-http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?Country=USA&Locality=bogalusa&state=la&fmt=JSON
+[http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?Country=USA&Locality=bogalusa&state=la&fmt=JSON  ](http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?Country=USA&Locality=bogalusa&state=la&fmt=JSON  )
 
-What you get back should look like this (_sans_ the fancy syntax highlighting Github does):
+What you get back should look like this (_sans_ the fancy syntax highlighting Github does):  
+
 ```JSON
 {
-"engineVersion" : "GLC:4.93|U:1.01374|eng:1.0",
-"numResults" : 1,
-"executionTimems" : 109.2002,
-"resultSet" : { "type": "FeatureCollection",
-"features": [
-{ "type": "Feature",
-"geometry": {"type": "Point", "coordinates": [-89.84861, 30.79083]},
-"properties": {
-"parsePattern" : "BOGALUSA",
-"precision" : "High",
-"score" : 83,
-"uncertaintyRadiusMeters" : 4490,
-"uncertaintyPolygon" : "Unavailable",
-"displacedDistanceMiles" : 0,
-"displacedHeadingDegrees" : 0,
-"debug" : ":GazPartMatch=False|:inAdm=True|:Adm=WASHINGTON|:NPExtent=7455|:NP=BOGALUSA|:KFID=LA:ppl:9064|BOGALUSA"
-}
-}
- ],
-"crs": { "type" : "EPSG", "properties" : { "code" : 4326 }}
-}
-}
+engineVersion: "GLC:5.21|U:1.01374|eng:1.0",
+numResults: 1,
+executionTimems: 78.0002,
+resultSet: {
+type: "FeatureCollection",
+features: [
 {
-"engineVersion" : "GLC:4.93|U:1.01374|eng:1.0",
-"numResults" : 1,
-"executionTimems" : 109.2002,
-"resultSet" : { "type": "FeatureCollection",
-"features": [
-{ "type": "Feature",
-"geometry": {"type": "Point", "coordinates": [-89.84861, 30.79083]},
-"properties": {
-"parsePattern" : "BOGALUSA",
-"precision" : "High",
-"score" : 83,
-"uncertaintyRadiusMeters" : 4490,
-"uncertaintyPolygon" : "Unavailable",
-"displacedDistanceMiles" : 0,
-"displacedHeadingDegrees" : 0,
-"debug" : ":GazPartMatch=False|:inAdm=True|:Adm=WASHINGTON|:NPExtent=7455|:NP=BOGALUSA|:KFID=LA:ppl:9064|BOGALUSA"
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-89.848686,
+30.79102
+]
+},
+properties: {
+parsePattern: "BOGALUSA",
+precision: "High",
+score: 84,
+uncertaintyRadiusMeters: 4490,
+uncertaintyPolygon: "Unavailable",
+displacedDistanceMiles: 0,
+displacedHeadingDegrees: 0,
+debug: ":GazPartMatch=False|:inAdm=True|:Adm=WASHINGTON|:NPExtent=7455|:NP=BOGALUSA|:KFID=LA:ppl:9064|BOGALUSA"
 }
 }
- ],
-"crs": { "type" : "EPSG", "properties" : { "code" : 4326 }}
+],
+crs: {
+type: "EPSG",
+properties: {
+code: 4326
 }
 }
-```
+}
+}
+```  
+
 ## What is JSON?
 For our purposes, we don't really need to go deeply into what JSON (JavaScript Object Notation) is. It is enough for you to know that it is a format for storing and exchanging data in human readable text format and that it is an output format for all of the APIs we will use, as well as most web-based data APIs.
 ### Making sense of JSON
