@@ -38,6 +38,10 @@
 
 ```Dallas, TX, USA```
  
+ 
+# Excercises
+
+
 ## Geocoding with OpenRefine and an API
 ### OpenRefine
 Get it at OpenRefine.org
@@ -73,16 +77,41 @@ For more information about the Geocoding Process in ArcGIS, see Esri's What is G
 
 
 
-## Building an Address Locator with ArcGIS Pro
+## Building an Address Locator with ArcMap
 ### Example Data  
+We'll use two files from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise: 
+ 
+* US_county_1930_conflated.shp - the reference data we will use to build our geocoder
+* photogrammar_image_count.csv
+
+### Prepare the reference data
+
+1. Open ArcMap and bring the US_county_1930_conflated.shp data into an empty Map Document
+2. Open the attribute table, create a new **Text** field called PLACE, with a length of 255
+3. right-click on the new PLACE field header and ***Calculate Field***
+4. Use the following code to concatenate the COUNTY and STATE fields, adding appropriate commas and 'USA':
+
+```[NHGISNAM] &" County, " & [STATENAM]&", United States"```  
+
+This should result in values like this:
+```Adair County, Missouri, United States```
+### Create the Address Locator
+1. In the Catalog Panel of ArcMap, right-click on your 'data' folder and select **New>Address locator...**
+2. Select Single Field as the locator type and set US_county_1930_conflated.shp as the reference data
+3. Set the PLACE field as the ***keyfield** and run the tool. 
+4. Right click on the resulting Address Locator and inspect the Properties to see what changes you can make. 
+5. Close the properties and drag the locator into the Map Document to make it the default locator.
+
+### Running the Geocoding Job  
+1. Bring the photogrammar_image_count.csv table into ArcMap, right-click and select **Geocode Addresses** and click OK
+2. Change to Single and Select **Column 1** as the **key**
+3. Click on Geocoding Options and:
+ 4. Change the Spelling Sensitivity and Minimum Match Score to 50
+ 5. Uncheck Match if Candidates tie
+ 6. Check the option to write the Reference ID
+7. Click OK, twice, to run the geocoder.
 
 
-### Reference Data
-
-Here is a US Counties file for 1930:  
-[https://earthworks.stanford.edu/catalog/stanford-zf690wx7253](https://earthworks.stanford.edu/catalog/stanford-zf690wx7253)
 
 
-
-###Running the Geocoding Job
 
