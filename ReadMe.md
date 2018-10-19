@@ -1,4 +1,14 @@
-# Geocoding in ArcGIS
+# Geocoding in ArcGIS  
+
+Shortlink: [bit.ly/crashgeocode](bit.ly/crashgeocode)
+
+Github Repo: [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)
+
+Webpage version of this repo, here: [http://mapninja.github.io/Tutorial-Geocoding-in-ArcGIS/](http://mapninja.github.io/Tutorial-Geocoding-in-ArcGIS/)  
+
+Download the repo as a .zip file to get the data for the exercises: [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS/archive/master.zip](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS/archive/master.zip)
+
+
 ## Resources
 ### Geocoding Services
 * [locator.stanford.edu](https://locator.stanford.edu/arcgis/rest/services)  
