@@ -53,29 +53,37 @@ Here is a dataset to use for the excercise:
  
 
 
-## Using the locator.stanford.edu Address Locators
+## Using the locator.stanford.edu Address Locators  
+### Example Data  
+We'll use one file from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise: 
+
+* Evictions_94102.csv
+
+
+
 The Stanford Geospatial Center has been developing our internal geocoding infrastructure. We now have a BETA Geocoding Server, based upon Esri's ArcGIS Server technology. The server currently provides geocoding services for North American Street Addresses.
 
 To access the Address Locator services:
 
-* In ArcCatalog, or the Catalog Panel in ArcMap, expand the GIS Servers item    
-* Double-click the Add ArcGIS Server item    
-* Leave the default "Use GIS Services" option, click Next>  
-* For the 'Server URL' use: [http://locator.stanford.edu/arcgis](http://locator.stanford.edu/arcgis)  
-* **For 'User Name' use your SUNetID (prefixed with the 'WIN\' domain) as WIN\SUNetID**  
-* Enter the password associated with your SUNetID and check the option to Save Username/Password  
-* Click Finish  
-
-You should then be able to use the various Address Locator Services for bulk geocoding in ArcGIS.
-
-The address locators inside the geocode folder include a Composite (capable of street addresses and postal codes) service for North America and Brazil, and separate services for U.S. and Brazilian Street Addresses.
-
-The address locators in the Rio folder include Address Locators built by The Spatial History Project at Stanford's Center for Spatial and Textual Analysis(CESTA). For more information about these geocoding services, see the Spatial History Project's Rio de Janeiro Historical Address Locator page.
-
-For more information about the Geocoding Process in ArcGIS, see Esri's What is Geocoding? Guide.
+1. In ArcCatalog, or the Catalog Panel in ArcMap, expand the GIS Servers item    
+2. Double-click the Add ArcGIS Server item    
+3. Leave the default "Use GIS Services" option, click Next>  
+4. For the 'Server URL' use: [http://locator.stanford.edu/arcgis](http://locator.stanford.edu/arcgis)  
+5.  **For 'User Name' use your SUNetID (prefixed with the 'WIN\' domain) as WIN\SUNetID**  
+6.  Enter the password associated with your SUNetID and check the option to Save Username/Password  
+7.  Click Finish  
 
 
-
+### Running the geocoding job  
+1. Drag and drop the US_StreetAddress Address Locator from your Server Connection in the Catalog Panel, into the Map Document to make it the default. 
+2. Drag the Evictions_94102.csv into the Map Document and open it to examine the attributes, paying attention to the field names for the address fields.
+3.  Right-click on Evictions_94102.csv and select **Geocode addresses...** and then click OK to use the default you set, before. 
+4. Set the appropriate fields in the Address input fields options
+5. Open the Geocoding options and examine them, but accept the server defaults.
+6. Click OK to run the geocoder.
+6. Click Rematch to explore the options, try to manually match any unmatched records and Close the Rematch Dialog.
+7. Right-click and Zoom to the Geocoding Result layer
+8. Add a Basemap for context.  
 
 ## Building an Address Locator with ArcMap
 ### Example Data  
@@ -111,6 +119,7 @@ This should result in values like this:
  5. Uncheck Match if Candidates tie
  6. Check the option to write the Reference ID
 7. Click OK, twice, to run the geocoder.
+8. Click Rematch to explore the options, there, then click Close.
 8. Use a Spatial Join to add the Geocoding Results attributes to the original US_county_1930_conflated.shp file
 
 
