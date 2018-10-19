@@ -66,7 +66,7 @@ We'll use one file from the **[data](https://github.com/mapninja/Tutorial-Geocod
 
 The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's ArcGIS Server technology. The server currently provides geocoding services for US Street Addresses, postal codes and administrative boundaries.
 
-#### To access the Address Locator services:
+### To access the Address Locator services:
 
 1. In ArcCatalog, or the **Catalog Panel in ArcMap**, expand the **GIS Servers** item    
 2. Double-click the **Add ArcGIS Server** item    
