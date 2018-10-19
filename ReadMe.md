@@ -450,6 +450,45 @@ value.parseJson().geonames[0].lat
 ```
 value.parseJson().geonames[0].lng  
 ```  
+# Geocoding with Geolocate
+___this section in progress___
+
+# Geolocate Tulane  
+### Limits
+There are no licensing restrictions on the Tulane Geolocate service. The API can be used for any geocoding purpose and for any amount of data. That said, the service does have some technical limitations. I have observed that a more stable result is achieved when using no more than 5 requests per second. Another thing to consider is the purpose for which Geolocate was created. Geolocate is very good at geocoding to administrative boundaries, but was not designed to geocode street addresses, so if that is what you have, you will have to use an alternative service.
+
+Here are the Geolocate Parameters, once again:
+
+![JSONViewer Collapsed] (/images/Geolocate_API_Parameters.png)
+
+Most of these are fairly straightforward. The ones that most concern us  for the current tutorial are the following:
+
+  __locality__ - This is the "address" or placename you are actually looking for. Geolocate is actually built to handle fairly esoteric localities (like "3 miles north of the confluence of the X and Y rivers").
+  
+  __country__ - This is the country that your locality is in. This is a required parameter for all Geolocate Searches.
+  
+  __state__ - This is listed as an optional parameter in the Geolocate JSON Wrapper DOc, but it is __REQUIRED__ if you are geocoding data within the United States and set your 'country=USA'.
+  
+  
+### API Overview
+
+Again, here’s the basic structure of the URLs you will submit to the Geolocate JSON Wrapper Web API:
+
+```
+http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?Country=USA&Locality=bogalusa&state=la&fmt=JSON
+```
+
+From the sample above:
+```
+http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?
+``` 
+...is the base URL of the (Geolocate Search API) [http://www.museum.tulane.edu/geolocate/]...
+
+```
+Country=USA&Locality=bogalusa&state=la&fmt=JSON
+```
+
+...are the parameters of the search. In this case, there are four basic parameters to the search.
 
 
 ## Exercise #4 (in progress) Geocoding with the Tulane Geolocate API  
@@ -551,45 +590,8 @@ code: 4326
 
 
 
-# Geolocate Tulane  
-### Limits
-There are no licensing restrictions on the Tulane Geolocate service. The API can be used for any geocoding purpose and for any amount of data. That said, the service does have some technical limitations. I have observed that a more stable result is achieved when using no more than 5 requests per second. Another thing to consider is the purpose for which Geolocate was created. Geolocate is very good at geocoding to administrative boundaries, but was not designed to geocode street addresses, so if that is what you have, you will have to use an alternative service.
 
-Here are the Geolocate Parameters, once again:
 
-![JSONViewer Collapsed] (/images/Geolocate_API_Parameters.png)
-
-Most of these are fairly straightforward. The ones that most concern us  for the current tutorial are the following:
-
-  __locality__ - This is the "address" or placename you are actually looking for. Geolocate is actually built to handle fairly esoteric localities (like "3 miles north of the confluence of the X and Y rivers").
-  
-  __country__ - This is the country that your locality is in. This is a required parameter for all Geolocate Searches.
-  
-  __state__ - This is listed as an optional parameter in the Geolocate JSON Wrapper DOc, but it is __REQUIRED__ if you are geocoding data within the United States and set your 'country=USA'.
-  
-  
-### API Overview
-
-Again, here’s the basic structure of the URLs you will submit to the Geolocate JSON Wrapper Web API:
-
-```
-http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?Country=USA&Locality=bogalusa&state=la&fmt=JSON
-```
-
-From the sample above:
-```
-http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?
-``` 
-...is the base URL of the (Geolocate Search API) [http://www.museum.tulane.edu/geolocate/]...
-
-```
-Country=USA&Locality=bogalusa&state=la&fmt=JSON
-```
-
-...are the parameters of the search. In this case, there are four basic parameters to the search.
-
-### Geocoding with Geolocate
-___this section in progress___
 
 
 
