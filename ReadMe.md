@@ -391,8 +391,6 @@ This XML file does not appear to have any style information associated with it. 
 <fcl>A</fcl>
 <fcode>ADMD</fcode>
 </geoname>
-
-
 and so on...
 ```  
 
