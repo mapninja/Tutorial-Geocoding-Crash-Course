@@ -1,4 +1,4 @@
-# Geocoding in ArcGIS  
+# Geocoding: A Crash Course (because this is a workshop in progress, and geocoding is hard and we will crash a little).
 
 Shortlink: [bit.ly/crashgeocode](bit.ly/crashgeocode)
 
