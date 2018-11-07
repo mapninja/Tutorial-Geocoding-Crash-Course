@@ -70,7 +70,7 @@ The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's A
 
 1. In ArcCatalog, or the **Catalog Panel in ArcMap**, expand the **GIS Servers** item    
 2. Double-click the **Add ArcGIS Server** item    
-3. Leave the default "**Use GIS Services**" option, click **Next> ** 
+3. Leave the default "**Use GIS Services**" option, click **Next>** 
 4. For the '**Server URL**' use: [https://locator.stanford.edu/arcgis](https://locator.stanford.edu/arcgis)  
 5.  **For 'User Name' use your SUNetID (prefixed with the 'WIN\' domain) as WIN\SUNetID**  
 6.  Enter the **password** associated with your **SUNetID** and check the option to **Save Username/Password**  
@@ -78,11 +78,11 @@ The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's A
 
 
 ### Running the geocoding job  
-1. **Drag and drop** the **US_StreetAddress Address Locator **from your Server Connection in the **Catalog Panel**, into the **Map Document** to make it the default. 
+1. **Drag and drop** the **US_StreetAddress Address Locator** from your Server Connection in the **Catalog Panel**, into the **Map Document** to make it the default. 
 2. **Drag** the **Evictions_94102.csv** into the **Map Document** and **open** it to **examine the attributes**, paying attention to the field names for the address fields.
-3.  **Right-click** on E**victions_94102.csv** and select **Geocode addresses...** and then **click OK** to use the default you set, before. 
+3.  **Right-click** on **Evictions_94102.csv** and select **Geocode addresses...** and then **click OK** to use the default you set, before. 
 4. Set the appropriate fields in the **Address input fields** options
-5. Open the G**eocoding options** and examine them, but accept the server **defaults**.
+5. Open the **Geocoding options** and examine them, but accept the server **defaults**.
 6. **Click OK** to run the geocoder.
 6. Click **Rematch** to explore the options, try to **manually match any unmatched records** and Close the Rematch Dialog.
 7. Right-click and **Zoom to the Geocoding Result layer**
@@ -118,7 +118,7 @@ This should result in values like this:
 ```Adair County, Missouri, United States```  
 
 ### Create the Address Locator  
-1. In the **Catalog Panel of ArcMap**, **right-click** on your **'data' folder **and select **New>Address locator...**  
+1. In the **Catalog Panel of ArcMap**, **right-click** on your **'data' folder** and select **New>Address locator...**  
 2. Select **Single Field** as the **locator type** and set  **US_county_1930_conflated.shp** as the reference data  
 3. Set the **PLACE** field as the ***keyfield** and run the tool. 
 4. **Right click** on the resulting **Address Locator** and inspect the **Properties** to see what changes you can make.  
@@ -128,11 +128,11 @@ This should result in values like this:
 1. Bring the **photogrammar_image_count.csv** table into **ArcMap**, right-click and **select** **Geocode Addresses** and click **OK**
 2. **Change** to **Single** and Select **Column 1** as the **key**
 3. Click on **Geocoding Options** and:
- 4. Change the **Spelling Sensitivity **and **Minimum Match Score** to **50**
+ 4. Change the **Spelling Sensitivity** and **Minimum Match Score** to **50**
  5. **Uncheck** **Match if Candidates tie**
 7. Click **OK**, twice, to **run the geocoder**.
 8. Click **Rematch** to **explore the options**, then click **Close**.
-8. Use a **Spatial Join** to add the **Geocoding Results attributes **to the original **US_county_1930_conflated.shp** file
+8. Use a **Spatial Join** to add the **Geocoding Results attributes** to the original **US_county_1930_conflated.shp** file
 
 ## *Geocoding in ArcGIS Online without using credits*
 
