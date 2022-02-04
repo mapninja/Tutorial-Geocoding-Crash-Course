@@ -49,7 +49,7 @@ That is, if you have a database of 2 million addresses, but there are many dupli
 This should always be the first step in a geocoding job, as it saves time, processing and often credits or money.
 
 
-# Exercise #1 - Using the locator.stanford.edu Address Locators  
+# Exercise #1 - Using the locator.stanford.edu Address Locators with ArcGIS Pro
 ### Example Data  
 We'll use one file from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise:
 
@@ -59,7 +59,7 @@ The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's A
 
 ### To access the Address Locator services:
 
-1. In ArcCatalog, or the **Catalog Panel in ArcMap**, expand the **GIS Servers** item    
+1. Open ArcGIS Pro, and start a new Project, called "Geocoding"
 2. Double-click the **Add ArcGIS Server** item    
 3. Leave the default "**Use GIS Services**" option, click **Next>**
 4. For the '**Server URL**' use: [https://locator.stanford.edu/arcgis](https://locator.stanford.edu/arcgis)  
