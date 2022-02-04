@@ -10,17 +10,6 @@ Download the repo as a .zip file to get the data for the exercises: [https://git
 
 Slides: [https://slides.com/staceymaples/geocoding-101](https://slides.com/staceymaples/geocoding-101)
 
-
-## Resources
-### Geocoding Services
-* [locator.stanford.edu](https://locator.stanford.edu/arcgis/rest/services)  
-* [stanford.maps.arcgis.com](https://stanford.maps.arcgis.com/)  
-* [Census.gov geocoder](https://www.census.gov/geo/maps-data/data/geocoder.html)  
-
-### Geocoding APIs:
- * [Geonames.org](https://www.geonames.org/)
- * [Geolocate](http://www.geo-locate.org/)
-
 ### Specialty Geocoding APIs:
  * [Yandex](https://tech.yandex.com/maps/doc/geocoder/desc/concepts/limits-docpage/) - Geocoding and Routing API for Russia, Eastern Europe and Western Asia.  
  * [MapMyIndia.com](https://www.mapmyindia.com/api/) - Geocoding and Routing API (plus many others!) for India
@@ -28,6 +17,9 @@ Slides: [https://slides.com/staceymaples/geocoding-101](https://slides.com/stace
 
 ### Things to talk about:
 ## Basics of Geocoding
+
+Geocoding, in the context of this service, is the use of reference datasets (such as street networks, administrative boundaries and gazetteers) to convert text-based locations (such as street addresses, administrative units or placenames) into explicit locations, or latitude/longitude coordinate pairs, in most use cases. These resulting coordinates are often used to extract values from other datasets, based upon location, or for measurement of proximity to other features and phenomena.
+
 * Street Addresses
 * Placenames
 * Administrative Boundaries
@@ -35,8 +27,8 @@ Slides: [https://slides.com/staceymaples/geocoding-101](https://slides.com/stace
 * High-risk and PHI Geocoding
 
 ## Preparing Your Address Table
-[Formatting a Table for Use in ArcGIS](http://support.esri.com/EN/knowledgebase/techarticles/detail/30727) 
- 
+[Formatting a Table for Use in ArcGIS](http://support.esri.com/EN/knowledgebase/techarticles/detail/30727)
+
 ### Things GIS hates about your tables:  
 * Spaces or special characters (other than _ ) in field names  
 * Field Names that start with a number  
@@ -52,15 +44,14 @@ Slides: [https://slides.com/staceymaples/geocoding-101](https://slides.com/stace
 
 #### Collapse your addresses/placenames into a table of UNIQUE addresses/placenames!  
 
-That is, if you have a database of 2 million addresses, but there are many duplicates, use a summary or frequency tool to collapse those records into unique localities. For example, the Photogrammar data we will use with our custom ArcGIS Address Locator has 98k+ records, but only about 4000 unique locations. They can easily be joined back to the original dataset in a many-to-one join. 
- 
-This should always be the first step in a geocoding job, as it saves time, processing and often credits or money. 
+That is, if you have a database of 2 million addresses, but there are many duplicates, use a summary or frequency tool to collapse those records into unique localities. For example, the Photogrammar data we will use with our custom ArcGIS Address Locator has 98k+ records, but only about 4000 unique locations. They can easily be joined back to the original dataset in a many-to-one join.
 
-# Exercises
+This should always be the first step in a geocoding job, as it saves time, processing and often credits or money.
 
-## Exercise #1 - Using the locator.stanford.edu Address Locators  
+
+# Exercise #1 - Using the locator.stanford.edu Address Locators  
 ### Example Data  
-We'll use one file from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise: 
+We'll use one file from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise:
 
 * **Evictions_94102.csv** - Download the *raw* version of this file into your working folder. Open it to ensure it contains comma-separated values, and not HTML.
 
@@ -70,7 +61,7 @@ The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's A
 
 1. In ArcCatalog, or the **Catalog Panel in ArcMap**, expand the **GIS Servers** item    
 2. Double-click the **Add ArcGIS Server** item    
-3. Leave the default "**Use GIS Services**" option, click **Next>** 
+3. Leave the default "**Use GIS Services**" option, click **Next>**
 4. For the '**Server URL**' use: [https://locator.stanford.edu/arcgis](https://locator.stanford.edu/arcgis)  
 5.  **For 'User Name' use your SUNetID (prefixed with the 'WIN\' domain) as WIN\SUNetID**  
 6.  Enter the **password** associated with your **SUNetID** and check the option to **Save Username/Password**  
@@ -79,9 +70,9 @@ The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's A
 
 
 ### Running the geocoding job  
-1. **Drag and drop** the **USA_StreetAddress** Address Locator from *GIS Servers > arcgis on locator.stanford.edu > geocode* into the **Map Document** to make it the default. 
+1. **Drag and drop** the **USA_StreetAddress** Address Locator from *GIS Servers > arcgis on locator.stanford.edu > geocode* into the **Map Document** to make it the default.
 2. **Drag** the **Evictions_94102.csv** into the **Map Document** and right-click to **open** it to **examine the attributes**, paying attention to the field names for the address fields.
-3. **Right-click** on **Evictions_94102.csv** and select **Geocode addresses...** and then **click OK** to use the default locator you set before. 
+3. **Right-click** on **Evictions_94102.csv** and select **Geocode addresses...** and then **click OK** to use the default locator you set before.
   * If at this point you hit an error, save your map document, close ArcMap, re-open it, and repeat this step. It often works on the second try.
 4. Set the appropriate fields in the **Address input fields** options
 5. Open the **Geocoding options** and examine them, but accept the server **defaults**.
@@ -92,7 +83,7 @@ The Stanford Geospatial Center maintains a Geocoding Server, based upon Esri's A
   * In the **Show results:** drop down, select **Unmatched Addresses**.
   * In the results, select a single address row.
   * In the **Candidates** pane below, review the matching options, and select the right address. You can use the **Score** as a guideline on how closely each candidate matches the selected address.
-  * Click on the **Match** button to save the match. 
+  * Click on the **Match** button to save the match.
   * Repeat for all unmatched addresses.
 10. Once matching has been completed, **Close** the Rematch Dialog.
 11. Right-click the newly added results layer in the Table of Contents, and **Zoom to Layer**
@@ -109,8 +100,8 @@ There are a number of ways to leverage the SGC Address Locator server:
 ## Exercise #2 - Building an Address Locator with ArcMap
 ### Example Data  
 
-We'll use two files from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise: 
- 
+We'll use two files from the **[data](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS)** (at [https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS](https://github.com/mapninja/Tutorial-Geocoding-in-ArcGIS) ) for this exercise:
+
 * **US_county_1930_conflated.shp** - the reference data we will use to build our geocoder. Download all the files from the *US_county_1930_conflated* folder.
 * **photogrammar_image_count.csv** - Download the *raw* version of this file, and make sure it contains comma-separated values, not HTML.
 
@@ -130,7 +121,7 @@ This should result in values like this:
 
 ### Create the Address Locator  
 1. In the **Catalog Panel of ArcMap**, **right-click** on your **'data' folder** and select **New>Address locator...**  
-2. Under **Address Locator Style** select **General - Single Field** as the **locator type**. 
+2. Under **Address Locator Style** select **General - Single Field** as the **locator type**.
 3. Set **Reference Data** to **US_county_1930_conflated.shp**.
 4. In the Field Map, select ***keyfield** and in the second column, set it to **PLACE**.
 5. Confirm the **Output Address Locator** path, and click **OK** to run the tool.
@@ -138,7 +129,7 @@ This should result in values like this:
 7. Close the properties and **drag the locator into the Map Document** to make it the default locator.
 
 ### Running the Geocoding Job  
-1. Bring the **photogrammar_image_count.csv** table into **ArcMap**. 
+1. Bring the **photogrammar_image_count.csv** table into **ArcMap**.
 2. Right-click to **select** **Geocode Addresses**, and verify that your new address locator is selected, otherwise select it. Click **OK**
 3. **Change** to **Single Field** and Select **Column 1** as the **key**
 4. Click on **Geocoding Options** and:
@@ -149,13 +140,11 @@ This should result in values like this:
 9. Click **Rematch** to **explore the results**, then click **Close**.
 10. Use a **Spatial Join** to add the **Geocoding Results attributes** to the original **US_county_1930_conflated.shp** file
 
-## *Geocoding in ArcGIS Online without using credits*
 
-### *Coming Soon!*
 
-## Geocoding with OpenRefine and an API
+# Geocoding with OpenRefine and an API
 
-### Example Data 
+### Example Data
 * **TexasHealthByCounty.csv** - is the table we will geocode
 * Other datasets we can play with included in the **Challenge** folder
 
@@ -170,10 +159,10 @@ The Tulane Geolocate JSON Wrapper API Documentation: [http://www.museum.tulane.e
 
 Online JSON Viewer: [http://jsonviewer.stack.hu/](http://jsonviewer.stack.hu/)
 
-### Getting Ready for the Tutorial 
+### Getting Ready for the Tutorial
 This tutorial will demonstrate how to use OpenRefine to submit URLs to web-based Geocoding APIs in order to augment an existing dataset with things like latitude & longitude coordinates, elevation values, drive times, etc...
 
-OpenRefine is a piece of open-source software that allows you to manipulate data in many different ways. It's not just great for geocoding and augmenting datasets, but is really great for cleaning up 'dirty' data, too. 
+OpenRefine is a piece of open-source software that allows you to manipulate data in many different ways. It's not just great for geocoding and augmenting datasets, but is really great for cleaning up 'dirty' data, too.
 
 For the needs of this tutorial, OpenRefine allows us to build and submit URLs to a web service (like a geocoding API) over and over tens, hundreds, even thousands or more times, saving us the trouble of typing a URL into a browser and copy&pasting values, one at a time. OpenRefine runs in your browser, but does so locally by installing itself as a sort of server running on your own machine.  OpenRefine used to be called GoogleRefine, but has recently been re-branded, so much of the support materials you will find on-line will still refer to GoogleRefine.  
 
@@ -331,7 +320,7 @@ Hit enter and notice that returned format has changed (also note that I have for
       "lat": "29.25547",
       "fcode": "ADMD"
     },
-    
+
     And so on...
 ```
 
@@ -495,12 +484,12 @@ Here are the Geolocate Parameters, once again:
 Most of these are fairly straightforward. The ones that most concern us  for the current tutorial are the following:
 
   __locality__ - This is the "address" or placename you are actually looking for. Geolocate is actually built to handle fairly esoteric localities (like "3 miles north of the confluence of the X and Y rivers").
-  
+
   __country__ - This is the country that your locality is in. This is a required parameter for all Geolocate Searches.
-  
+
   __state__ - This is listed as an optional parameter in the Geolocate JSON Wrapper DOc, but it is __REQUIRED__ if you are geocoding data within the United States and set your 'country=USA'.
-  
-  
+
+
 ### API Overview
 
 Again, here’s the basic structure of the URLs you will submit to the Geolocate JSON Wrapper Web API:
@@ -512,7 +501,7 @@ http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?Country=USA
 From the sample above:
 ```
 http://www.museum.tulane.edu/webservices/geolocatesvcv2/glcwrap.aspx?
-``` 
+```
 ...is the base URL of the (Geolocate Search API) [http://www.museum.tulane.edu/geolocate/]...
 
 ```
@@ -628,5 +617,19 @@ code: 4326
 
 
 
+----
 
+## Resources
+### Geocoding Services
+* [locator.stanford.edu](https://locator.stanford.edu/arcgis/rest/services)  
+* [stanford.maps.arcgis.com](https://stanford.maps.arcgis.com/)  
+* [Census.gov geocoder](https://www.census.gov/geo/maps-data/data/geocoder.html)  
 
+### Geocoding APIs:
+ * [Geonames.org](https://www.geonames.org/)
+ * [Geolocate](http://www.geo-locate.org/)
+
+### Gazetteers
+
+ * WhosOnFirst
+ * NGA GNS
